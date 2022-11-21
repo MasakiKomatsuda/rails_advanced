@@ -24,6 +24,19 @@ class ArticlesController < ApplicationController
     @article = @category.articles.find_by!(slug: params[:article_slug])
   end
 
+  def update
+    authorize(@article)
+
+    @article.assign_attributes(article_params)
+    @article.adjust_state
+    if @article.save
+      flash[:notice] = '更新しました'
+      redirect_to edit_article_path(@article.uuid)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_tag
