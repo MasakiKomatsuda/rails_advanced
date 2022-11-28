@@ -4,7 +4,7 @@ class TaxonomyPolicy < ApplicationPolicy
   end
 
   def create?
-
+    user.admin? || user.editor?
   end
 
   def update?
