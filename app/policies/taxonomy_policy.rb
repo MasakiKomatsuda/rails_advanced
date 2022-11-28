@@ -1,17 +1,17 @@
 class TaxonomyPolicy < ApplicationPolicy
   def index?
-    true
-  end
-
-  def create?
     user.admin? || user.editor?
   end
 
+  def create?
+
+  end
+
   def update?
-    true
+    user.admin? || user.editor?
   end
 
   def destroy?
-    true
+    user.admin? || user.editor?
   end
 end
