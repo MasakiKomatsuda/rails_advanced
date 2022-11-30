@@ -11,6 +11,10 @@ ja:
         editor: '編集者'
         admin: '管理者'
     article:
+      eyecatch_position:
+        left: '左寄せ'
+        center: '中央寄せ'
+        right: '右寄せ'
       state:
         draft: '下書き'
         published: '公開'
